@@ -28,7 +28,7 @@ python test.py --nogpu --opt convnet  ^
 --output examples/inpainted-dilated-masks 
 ```
 
-### Basic Usage (original repo)
+### Basic Usage
 0. Download code and model
 ```
 git clone --single-branch https://github.com/zengxianyu/crfill
