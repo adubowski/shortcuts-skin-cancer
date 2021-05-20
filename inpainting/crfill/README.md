@@ -2,6 +2,8 @@
 
 Original repo at: https://github.com/zengxianyu/crfill
 
+Small change from the original repo in test.py. The code now only runs on the images for which mask files exist.
+
 [REDI Usage](#redi-usage) |  [Basic Usage](#basic-usage) | [Web App](#web-app) | [Paper](https://arxiv.org/pdf/2011.12836.pdf) 
 
 code for paper. This repo (including code and models) are for research purposes only. 
