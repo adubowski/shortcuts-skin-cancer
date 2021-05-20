@@ -1,1 +1,2 @@
-# redi-xai
+# Detecting Cheating in Skin Cancer Diagnosis
+This project is focused on the topic of Explainable AI in the "Research Experiments in Databases and Information Retrieval" (REDI) course. The project aims to show the undesired bias in skin cancer prediction models when trained on the ISIC dataset which contains coloured patches in the group of non-cancer images, which could potentially result in misdiagnoses when applied in real-life scenarios.
