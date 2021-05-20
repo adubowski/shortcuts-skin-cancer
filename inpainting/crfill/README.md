@@ -12,7 +12,9 @@ code for paper. This repo (including code and models) are for research purposes 
 See dependencies in [Basic Usage](#basic-usage)
 
 0. Set working directory.
-```cd redi-xai/inpainting/crfill```
+```
+cd redi-xai/inpainting/crfill
+```
 1. Run the inpainting on the images (299x299) with the original masks. (Windows)
 ```
 python test.py --nogpu --opt convnet  ^
