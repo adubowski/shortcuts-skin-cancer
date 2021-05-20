@@ -11,18 +11,19 @@ code for paper. This repo (including code and models) are for research purposes 
 ### REDI Usage
 See dependencies in [Basic Usage](#basic-usage)
 
-0. Set working directory.
+Set working directory.
 ```
 cd redi-xai/inpainting/crfill
 ```
-1. Run the inpainting on the images (299x299) with the original masks. (Windows)
+Run the inpainting on the images (299x299) with the original masks. (Windows)
 ```
 python test.py --nogpu --opt convnet  ^
 --image ../data/processed/no_cancer ^
 --mask ../data/masks/segmentation-binary ^
 --output examples/inpainted-orig
 ```
-2. Run the inpainting on the images with the dilated masks. (Windows)
+*OR*
+Run the inpainting on the images with the dilated masks. (Windows)
 ```
 python test.py --nogpu --opt convnet  ^
 --image ../data/processed/no_cancer ^
