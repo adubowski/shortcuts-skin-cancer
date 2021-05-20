@@ -1,6 +1,6 @@
 # crfill
 
-Original found at: https://github.com/zengxianyu/crfill
+Original repo at: https://github.com/zengxianyu/crfill
 
 [REDI Usage](#redi-usage) |  [Basic Usage (original repo)](#basic-usage) | [Web App](#web-app) | [Paper](https://arxiv.org/pdf/2011.12836.pdf) 
 
@@ -28,7 +28,7 @@ python test.py --nogpu --opt convnet  ^
 --output examples/inpainted-dilated-masks 
 ```
 
-### Basic usage (original repo)
+### Basic Usage (original repo)
 0. Download code and model
 ```
 git clone --single-branch https://github.com/zengxianyu/crfill
