@@ -1,0 +1,12 @@
+name: testcrfill
+channels:
+  - defaults
+dependencies:
+  - opencv=3.4.2
+  - py-opencv=3.4.2
+  - python=3.6.12
+  - pytorch=1.3.1
+  - tqdm
+  - flask=1.1.2
+  - requests=2.24.0
+  - pillow=8.0.1
