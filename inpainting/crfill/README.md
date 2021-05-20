@@ -29,11 +29,6 @@ python test.py --nogpu --opt convnet  ^
 ```
 
 ### Basic Usage
-0. Download code and model
-```
-git clone --single-branch https://github.com/zengxianyu/crfill
-```
-[download model files](https://maildluteducn-my.sharepoint.com/:f:/g/personal/zengyu_mail_dlut_edu_cn/EsCtYO-QzNRKvnpxKq3KeD8B8vCBQXaNEMUEmWlsaLyJSQ?e=9cEfBJ) and put them in the ./files/ directory
 
 1. Install dependencies:
 ```
