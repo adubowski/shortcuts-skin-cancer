@@ -1,1 +1,1 @@
-{"user": [INSERT USERNAME], "pw": [INSERT PASSWORD], "data_folder": "../data/", "num_imgs":25000, "offset":0, "model_folder": "../classifier/models"}
+{"user": "[INSERT USERNAME]", "pw": "[INSERT PASSWORD]", "data_folder": "../data/", "num_imgs":25000, "offset":0, "model_folder": "../classifier/models"}
