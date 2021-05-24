@@ -12,8 +12,8 @@ data_path = data["data_folder"]
 img_path = oj(data_path, "raw")
 processed_path = oj(data_path, "processed")
 segmentation_path = oj(data_path, "segmentation")
-benign_path = oj(processed_path, "no_cancer_256")
-malignant_path = oj(processed_path, "cancer_256")
+benign_path = oj(processed_path, "no_cancer_224")
+malignant_path = oj(processed_path, "cancer_224")
 
 os.makedirs(processed_path,exist_ok = True)
 os.makedirs(benign_path,exist_ok = True)
@@ -45,7 +45,7 @@ def resize_and_save(my_list, my_folder):
         try:
             img = Image.open(oj(img_path, file_name))
             # test = np.asarray(img)
-            img_resized = img.resize((256, 256))
+            img_resized = img.resize((224, 224))
             imwrite(oj(my_folder, file_name), img_resized)
         except:
             print(file_name)
