@@ -1,18 +1,9 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri May 21 09:26:01 2021
-
-@author: Ricky
-"""
-
 import cv2
 import numpy as np
 from numpy import random
 from numpy.random import randint
 from matplotlib import pyplot as plt
 import math
-
-height,width= 224,224                                                       # Required size of the masks
 
 def find_angle(pos1, pos2, ret_type = 'deg'):
     # Find the angle between two pixel points, pos1 and pos2.
@@ -42,21 +33,25 @@ def sample_centre_pts(n, imsize, xlimits=(50,250), ylimits=(50,250)):
 
     return pts
 
-def generate_masks(n, imsize, seed=0):
-    im_centre = (int(width/2), int(height/2))
-    x_bounds =  (int(0.1*width), int(width-0.1*width))                      # Bounds for the valid region of mask centres.
-    y_bounds =  (int(0.1*height), int(height - 0.1*height))
+def generate_ellipse_mask(imsize, mask_size, seed=None):
+    im_centre = (int(imsize[0]/2), int(imsize[1]/2))
+    x_bounds =  (int(0.1*imsize[0]), int(imsize[0] - 0.1*imsize[0]))        # Bounds for the valid region of mask centres.
+    y_bounds =  (int(0.1*imsize[1]), int(imsize[1] - 0.1*imsize[1]))
     
-    random.seed(seed)   # Set seed for repeatability
+    if seed is not None:
+      random.seed(seed)   # Set seed for repeatability
 
+    n = 1 + random.binomial(1, 0.3)                                         # The number of masks per image either 1 (70% of the time) or 2 (30% of the time) 
     centre_pts = sample_centre_pts(n, imsize, x_bounds, y_bounds)           # Get a random sample for the mask centres.
     
     startAngle = 0.0
-    endAngle = 360.0
+    endAngle = 360.0                                                        # Draw full ellipses (although part may fall outside the image)
         
+    mask = np.zeros((imsize[0], imsize[1], 1), np.float32)                  # Create blank canvas for the mask.
+
     for pt in centre_pts:
-        size = abs(int(random.normal(50, 10)))                              # Random mask size.
-        ratio = 2*random.random(1) + 1                                      # Ratio between length and width.
+        size = abs(int(random.normal(mask_size, mask_size/5.0)))            # Randomness introduced in the mask size. 
+        ratio = 2*random.random(1) + 1                                      # Ratio between length and width. Sample from Unif(1,3).
         
         centrex = int(pt[0])
         centrey = int(pt[1])
@@ -64,14 +59,18 @@ def generate_masks(n, imsize, seed=0):
         angle = find_angle(im_centre, (centrex, centrey))                   # Get the angle between the centre of the image and the mask centre.
         angle = int(angle + random.normal(0.0, 5.0))                        # Base the angle of rotation on the above angle.
         
-        mask = np.zeros((height,width, 1), np.float32)                           # Create blank canvas for the mask.
-
         mask = cv2.ellipse(mask, (centrex,centrey), (size, int(size*ratio)), 
                            angle, startAngle, endAngle, 
                            color=1, thickness=-1)                         # Insert a ellipse with the parameters defined above.
-        
-    return mask
-        # plt.imshow(mask, cmap='Greys_r')
-        # plt.show()
 
-test_mask = generate_masks(10, (width,height))
+    mask = np.minimum(mask, 1.0)                                          # This may be redundant.
+    mask = np.transpose(mask, [2, 0, 1])                                  # bring the 'channel' axis to the first axis.
+    mask = np.expand_dims(mask, 0)                                        # Add in extra axis at axis=0 - resulting shape (1, 1, )
+
+    return mask
+
+
+test_mask = generate_ellipse_mask(imsize = (224,224), mask_size = 40)
+from matplotlib import pyplot as plt
+plt.imshow(test_mask[0][0], cmap='Greys_r')
+plt.show()
