@@ -15,14 +15,14 @@ parent_masks_dir = oj('..', 'data', 'masks')
 raw_mask_dir     = oj(parent_masks_dir, 'segmentation-binary')
 dil_path         = oj(parent_masks_dir, 'dilated-masks')             # Directory to hold original mask with dilation applied.
 diff_path        = oj(parent_masks_dir, 'dilated-masks-diff')         # To hold the difference between the original & the dilated masks.
-dil_path_256     = oj(parent_masks_dir, 'dilated-masks-256')         # To hold raw resized masks (256x256).
-diff_path_256    = oj(parent_masks_dir, 'dilated-masks-diff-256')    # To hold dilated masks after resizing.
+dil_path_224     = oj(parent_masks_dir, 'dilated-masks-224')         # To hold raw resized masks (224x224).
+diff_path_224    = oj(parent_masks_dir, 'dilated-masks-diff-224')    # To hold dilated masks after resizing.
 
 # create the relevant directories if they don't exist.
 os.makedirs(dil_path, exist_ok=True)
 os.makedirs(diff_path, exist_ok=True)
-os.makedirs(dil_path_256, exist_ok=True)
-os.makedirs(diff_path_256, exist_ok=True)
+os.makedirs(dil_path_224, exist_ok=True)
+os.makedirs(diff_path_224, exist_ok=True)
 
 
 def dilate_ims(dil_path, diff_path, new_size = None):
@@ -51,4 +51,4 @@ def dilate_ims(dil_path, diff_path, new_size = None):
 
 # Run dilation for the original images and also resize.
 dilate_ims(dil_path, diff_path)                                       
-dilate_ims(dil_path_256, diff_path_256, (256, 256))    
+dilate_ims(dil_path_224, diff_path_224, (224, 224))    

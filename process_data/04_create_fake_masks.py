@@ -12,7 +12,7 @@ from numpy.random import randint
 from matplotlib import pyplot as plt
 import math
 
-height,width= 299,299                                                       # Required size of the masks
+height,width= 224,224                                                       # Required size of the masks
 
 def find_angle(pos1, pos2, ret_type = 'deg'):
     # Find the angle between two pixel points, pos1 and pos2.
@@ -64,13 +64,14 @@ def generate_masks(n, imsize, seed=0):
         angle = find_angle(im_centre, (centrex, centrey))                   # Get the angle between the centre of the image and the mask centre.
         angle = int(angle + random.normal(0.0, 5.0))                        # Base the angle of rotation on the above angle.
         
-        mask = np.zeros((height,width), np.uint8)                           # Create blank canvas for the mask.
+        mask = np.zeros((height,width, 1), np.float32)                           # Create blank canvas for the mask.
 
         mask = cv2.ellipse(mask, (centrex,centrey), (size, int(size*ratio)), 
                            angle, startAngle, endAngle, 
-                           color=255, thickness=-1)                         # Insert a ellipse with the parameters defined above.
+                           color=1, thickness=-1)                         # Insert a ellipse with the parameters defined above.
         
+    return mask
         # plt.imshow(mask, cmap='Greys_r')
         # plt.show()
 
-generate_masks(100, (width,height))
+test_mask = generate_masks(10, (width,height))
