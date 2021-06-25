@@ -9,9 +9,9 @@ More specific detail on which code is copied or original is available either in 
 
 Overall workflow:
 
-1. Download & resize images from ISIC database                      (01_process_data - scripts 00 to 02).
-2. Dilate the patch segmentation masks                              (01_process_data - 03_dilate_masks.py).
-3. Train the inpainting model                                       (02_inpainting - inpainting_gmcnn_train.ipynb).
-4. Apply inpainting to the relevant images for experiments          (02_inpainting - inpainting_gmcnn_test.ipynb).
-5. Train the classifier on the original images or inpainted images  (03_classifier - train_classifier.ipynb).
-6. Run experiments as reported in the paper                         (03_classifier - compare_predictions.ipynb).
+1. Download & resize images from ISIC database                      *(01_process_data - scripts 00 to 02).*
+2. Dilate the patch segmentation masks                              *(01_process_data - 03_dilate_masks.py).*
+3. Train the inpainting model                                       *(02_inpainting - inpainting_gmcnn_train.ipynb).*
+4. Apply inpainting to the relevant images for experiments          *(02_inpainting - inpainting_gmcnn_test.ipynb).*
+5. Train the classifier on the original images or inpainted images  *(03_classifier - train_classifier.ipynb).*
+6. Run experiments as reported in the paper                         *(03_classifier - compare_predictions.ipynb).*
