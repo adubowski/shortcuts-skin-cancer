@@ -1,6 +1,6 @@
 # Data folders
 data/*
-inpainting/crfill/examples/*
+02_inpainting/crfill/examples/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
