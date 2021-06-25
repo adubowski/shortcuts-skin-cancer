@@ -1,6 +1,6 @@
 # crfill
 
-#####*Note:* 
+##### *Note:* 
 This is not the final implemented inpainting model and was just used during the inpainting exploration phase. In particular, training code was not available at the time we were exploring inpainting models. However, pretty good results were achieved for many images even just using the pretrained model. See appendix of paper for more details.
 
 Original repo at: https://github.com/zengxianyu/crfill
