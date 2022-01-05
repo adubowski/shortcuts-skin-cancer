@@ -1,7 +1,7 @@
 # Shortcut Learning in Machine Learning Models for Skin Cancer Diagnosis
 The project aims to show the undesired bias in skin cancer prediction models when trained on the ISIC dataset which contains coloured patches in the group of non-cancer images, which could potentially result in misdiagnoses when applied in real-life scenarios.
 
-Corresponding Paper: [Uncovering and Correcting Shortcut Learning in Machine Learning Models for Skin Cancer Diagnosis](https://www.mdpi.com/2075-4418/12/1/40)
+Corresponding Paper: "[Uncovering and Correcting Shortcut Learning in Machine Learning Models for Skin Cancer Diagnosis]"(https://www.mdpi.com/2075-4418/12/1/40)
 
 ### Abstract
 Machine learning models have been successfully applied for analysis of skin images. However, due to the black box nature of such deep learning models, it is difficult to understand their underlying reasoning. This prevents a human from validating whether the model is right for the right reasons. Spurious correlations and other biases in data can cause a model to base its predictions on such artefacts rather than on the true relevant information. These learned shortcuts can in turn cause incorrect performance estimates and can result in unexpected outcomes when the model is applied in clinical practice. 
@@ -23,3 +23,18 @@ Overall workflow:
 4. Apply inpainting to the relevant images for experiments          *(02_inpainting - inpainting_gmcnn_test.ipynb).*
 5. Train the classifier on the original images or inpainted images  *(03_classifier - train_classifier.ipynb).*
 6. Run experiments as reported in the paper                         *(03_classifier - compare_predictions.ipynb).*
+
+### Citations
+Corresponding Paper (peer-reviewed, open access): "[Uncovering and Correcting Shortcut Learning in Machine Learning Models for Skin Cancer Diagnosis]"(https://www.mdpi.com/2075-4418/12/1/40). Please cite this paper when using the code: 
+```
+@article{nauta2022uncovering,
+  title={Uncovering and Correcting Shortcut Learning in Machine Learning Models for Skin Cancer Diagnosis},
+  author={Nauta, Meike and Walsh, Ricky and Dubowski, Adam and Seifert, Christin},
+  journal={Diagnostics},
+  volume={12},
+  number={1},
+  pages={40},
+  year={2022},
+  publisher={Multidisciplinary Digital Publishing Institute}
+}
+```
